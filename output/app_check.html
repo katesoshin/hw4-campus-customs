@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Campus Customs — App Check (Problem 11)</title>
+  <style>
+    :root { --yale:#00356b; --ink:#16202e; --muted:#5b6b7d; --line:#e2e8f0; --bg:#f6f8fb; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:"Times New Roman", Times, Georgia, serif; color:var(--ink); background:var(--bg); line-height:1.6; }
+    header { background:var(--yale); color:#fff; padding:28px 24px; }
+    header h1 { margin:0; font-size:1.8rem; }
+    header p { margin:6px 0 0; opacity:.9; }
+    main { max-width:980px; margin:0 auto; padding:32px 24px 64px; }
+    .check { background:#fff; border:1px solid var(--line); border-radius:14px; padding:24px; margin-bottom:28px; box-shadow:0 6px 24px rgba(0,53,107,.07); }
+    .check h2 { margin:0 0 4px; color:var(--yale); font-size:1.3rem; }
+    .check .what { margin:0 0 16px; color:var(--muted); font-size:.98rem; }
+    .check img { width:100%; border:1px solid var(--line); border-radius:10px; display:block; }
+    .proves { margin:14px 0 0; padding:12px 14px; background:#eef3fb; border-left:4px solid var(--yale); border-radius:6px; }
+    .proves strong { color:var(--yale); }
+    footer { max-width:980px; margin:0 auto; padding:0 24px 48px; color:var(--muted); font-size:.9rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Campus Customs — Live Site App Check</h1>
+    <p>Problem 11 · three checks on the running site (React + Vite front end, FastAPI + PydanticAI backend)</p>
+  </header>
+
+  <main>
+    <section class="check">
+      <h2>Check 1 — Chat gives honest price &amp; stock from the database</h2>
+      <p class="what">Asked the chatbot (Handsome Dan): “Is the Baseball Left Chest Crewneck in stock in XS, and how much is it?”</p>
+      <img src="app_check_images/inventory.png" alt="Chat reply showing the crewneck is $58.00 and size XS is sold out" />
+      <p class="proves"><strong>What it proves:</strong> The agent calls its database tools and answers truthfully — it reports the exact price ($58.00) and that size XS is sold out, rather than inventing availability. Price and stock come straight from the catalogue and inventory tables.</p>
+    </section>
+
+    <section class="check">
+      <h2>Check 2 — A category question dynamically fills the page with product cards</h2>
+      <p class="what">Asked the chatbot: “What hoodies do you have?” The agent searched the catalogue and the matching items appeared on the Shop page as product cards.</p>
+      <img src="app_check_images/search_cards.png" alt="Shop page showing 'Handsome Dan found 12 matches for What hoodies do you have?' with a grid of hoodie cards" />
+      <p class="proves"><strong>What it proves:</strong> The agent returns structured product matches and the front end renders them live as cards (image, name, price, short info) — here “Handsome Dan found 12 matches.” Each card also opens the product’s detail page when clicked.</p>
+    </section>
+
+    <section class="check">
+      <h2>Check 3 — Usability feature (Problem 9): sort &amp; “In stock only” on the Shop</h2>
+      <p class="what">On the Shop page, set the sort to “Price: High to Low” and enabled the “In stock only” toggle.</p>
+      <img src="app_check_images/usability.png" alt="Shop page with Price High to Low selected and In stock only checked, showing $98 jackets first" />
+      <p class="proves"><strong>What it proves:</strong> The Problem 9 shopping controls work — the most expensive in-stock items ($98 jackets) sort to the top and sold-out items are hidden, so shoppers can browse by budget and availability.</p>
+    </section>
+  </main>
+
+  <footer>
+    Generated for Problem 11 · screenshots captured from the live app at localhost:5173. Open this file by double-clicking it; images load from <code>app_check_images/</code>.
+  </footer>
+</body>
+</html>
