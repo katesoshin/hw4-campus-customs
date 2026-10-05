@@ -21,12 +21,22 @@ hw4/
 ├── frontend/                # Vite React TypeScript app
 ├── backend/                 # the AGENT is four files: prompts/prompt.md, agent.py,
 │   ├── main.py              #   tools.py, models.py. main.py is the FastAPI app
-│   ├── agent.py             #   (run: uvicorn main:app) and config/db/auth/audit are
+│   ├── agent.py             #   (run: uvicorn main:app); config/db/auth/audit are
 │   ├── tools.py             #   supporting infrastructure.
 │   ├── models.py
-│   ├── config.py  db.py  auth.py  audit.py
-│   └── prompts/prompt.md    # system prompt (voice + safety rules)
-└── output/                  # harness, design/usability notes, app check, audit trail
+│   ├── config.py
+│   ├── db.py
+│   ├── auth.py
+│   ├── audit.py
+│   └── prompts/
+│       └── prompt.md        # system prompt (voice + safety rules)
+└── output/
+    ├── harness.md           # full system spec (models, tools, safety, specs)
+    ├── design.md            # design decisions (Problem 10)
+    ├── usability.md         # usability improvements (Problem 9)
+    ├── app_check.html       # live-site test report (Problem 11)
+    ├── app_check_images/    # screenshots linked from app_check.html
+    └── audit_trail.json     # append-only agent-loop audit log (Problem 12)
 ```
 
 **The agent** is the four files under `backend/`: `prompts/prompt.md` (system prompt),
